@@ -10,6 +10,7 @@ format: "- [ ] [FEAT|FIX] [HIGH|MED|LOW] **Name**. Description"
 
 ## Pending
 
+- [ ] [FEAT] [HIGH] **Simplify integrations**. Remove all native integrations and use only simple triggers: Webhook and Cron Job. This is for triggers. Then steps are just actions, we need to simplify that too. Maybe sth that's AI.
 - [ ] [FEAT] [MED] **Implement with Convex**. Consider tradeoffs. Not everyone is on Convex, and having psql may drive more audience.
 - [ ] [FEAT] [MED] **Collaboration**. Build collaboration features for the app. Maybe Convex is better for this kind of workload. Carefully consider the tradeoffs, and wether this is worth it or not.
 
