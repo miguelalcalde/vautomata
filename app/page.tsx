@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { api } from "@/lib/api-client";
-import { authClient, useSession } from "@/lib/auth-client";
+import { useSession } from "@/lib/auth-client";
 import {
   currentWorkflowNameAtom,
   edgesAtom,
@@ -57,14 +57,6 @@ const Home = () => {
     document.title = `${currentWorkflowName} - AI Workflow Builder`;
   }, [currentWorkflowName]);
 
-  // Helper to create anonymous session if needed
-  const ensureSession = useCallback(async () => {
-    if (!session) {
-      await authClient.signIn.anonymous();
-      await new Promise((resolve) => setTimeout(resolve, 100));
-    }
-  }, [session]);
-
   // Handler to add the first node (replaces the "add" node)
   const handleAddNode = useCallback(() => {
     const newNode: WorkflowNode = createDefaultTriggerNode();
@@ -102,10 +94,13 @@ const Home = () => {
       if (realNodes.length === 0 || hasCreatedWorkflowRef.current) {
         return;
       }
-      hasCreatedWorkflowRef.current = true;
+      if (!session?.user) {
+        toast.error("Sign in with Vercel to create workflows");
+        return;
+      }
 
       try {
-        await ensureSession();
+        hasCreatedWorkflowRef.current = true;
 
         // Create workflow with all real nodes
         const newWorkflow = await api.workflow.create({
@@ -129,7 +124,7 @@ const Home = () => {
     };
 
     createWorkflowAndRedirect();
-  }, [nodes, edges, router, ensureSession, setIsTransitioningFromHomepage]);
+  }, [nodes, edges, router, session?.user, setIsTransitioningFromHomepage]);
 
   // Canvas and toolbar are rendered by PersistentCanvas in the layout
   return null;

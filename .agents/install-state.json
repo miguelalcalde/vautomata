@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "installedAt": "2026-02-24T09:30:08.289Z",
+  "baseDir": "/Users/miguel/github/miguelalcalde/vautomata",
+  "canonicalRoot": "/Users/miguel/github/miguelalcalde/vautomata/.agents",
+  "scope": "local",
+  "mode": "symlink",
+  "tools": [
+    "cursor"
+  ],
+  "source": {
+    "input": "miguelalcalde/agentfiles",
+    "type": "git",
+    "repo": "miguelalcalde/agentfiles",
+    "commit": "1c20987458027362ad3e2eb56f48ea23c88c4c58",
+    "resolvedPath": "/var/folders/qq/s05n1kvj6n707br5xr9zgjbm0000gn/T/agntx/miguelalcalde-agentfiles"
+  },
+  "selection": {
+    "agents": [],
+    "skills": [
+      "backlog"
+    ],
+    "commands": [],
+    "files": [
+      "backlog"
+    ]
+  },
+  "reservedIgnored": [
+    "settings"
+  ],
+  "components": {
+    "agents": [],
+    "skills": [
+      {
+        "name": "backlog",
+        "canonicalPath": "/Users/miguel/github/miguelalcalde/vautomata/.agents/skills/backlog",
+        "sourcePath": "/var/folders/qq/s05n1kvj6n707br5xr9zgjbm0000gn/T/agntx/miguelalcalde-agentfiles/skills/backlog",
+        "targets": [
+          {
+            "tool": "cursor",
+            "path": "/Users/miguel/github/miguelalcalde/vautomata/.cursor/skills/backlog",
+            "mode": "symlink"
+          }
+        ]
+      }
+    ],
+    "commands": [],
+    "files": [
+      {
+        "name": "backlog",
+        "sourcePath": "/var/folders/qq/s05n1kvj6n707br5xr9zgjbm0000gn/T/agntx/miguelalcalde-agentfiles/backlog",
+        "targetPath": "/Users/miguel/github/miguelalcalde/vautomata/.backlog",
+        "mode": "copy"
+      }
+    ]
+  }
+}
